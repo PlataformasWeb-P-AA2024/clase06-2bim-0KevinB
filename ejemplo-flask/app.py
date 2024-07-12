@@ -13,8 +13,9 @@ def hello_world():
 def los_estudiantes():
     """
     """
-    r = requests.get("http://127.0.0.1:8000/api/estudiantes/",
-            auth=('reroes01', 'reroes'))
+    r = requests.get("http://127.0.0.1:8000/api/estudiantes")
+    print("------------------------")
+    print(r)
     estudiantes = json.loads(r.content)['results']
     numero_estudiantes = json.loads(r.content)['count']
     return render_template("losestudiantes.html", estudiantes=estudiantes,
@@ -25,8 +26,9 @@ def los_estudiantes():
 def los_telefonos():
     """
     """
-    r = requests.get("http://127.0.0.1:8000/api/numerost/",
-            auth=('reroes01', 'reroes'))
+    r = requests.get("http://127.0.0.1:8000/api/numerosts/",
+            auth=('Kevin', 'Kevinalex451'))
+    print(r)
     datos = json.loads(r.content)['results']
     numero = json.loads(r.content)['count']
     return render_template("lostelefonos.html", datos=datos,
@@ -37,8 +39,9 @@ def los_telefonos():
 def los_telefonos_dos():
     """
     """
-    r = requests.get("http://127.0.0.1:8000/api/numerost/",
-            auth=('reroes01', 'reroes'))
+    r = requests.get("http://127.0.0.1:8000/api/numerosts/",
+            auth=('Kevin', 'Kevinalex451'))
+    print(r)
     datos = json.loads(r.content)['results']
     numero = json.loads(r.content)['count']
     datos2 = []
@@ -61,7 +64,7 @@ def obtener_estudiante(url):
     """
     http://127.0.0.1:8000/api/estudiantes/4/
     """
-    r = requests.get(url, auth=('reroes01', 'reroes'))
+    r = requests.get(url, auth=('Kevin', 'Kevinalex451'))
     nombre_estudiante = json.loads(r.content)['nombre']
     return nombre_estudiante
 
